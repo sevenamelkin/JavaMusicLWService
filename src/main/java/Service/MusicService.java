@@ -30,6 +30,9 @@ public class MusicService implements MusicServiceInterface{
         mpegAudioFileReader = new MpegAudioFileReader();
     }
 
+    /**
+     @inheritdoc
+     */
     public Album getAlbum() throws UnsupportedAudioFileException, IOException {
         Album album = new Album();
         album.Name = "River of dreams";
@@ -55,6 +58,9 @@ public class MusicService implements MusicServiceInterface{
         return album;
     }
 
+    /**
+     @inheritdoc
+     */
     public void saveAlbumByPath(Album album) throws IOException {
         for (int i = 0; i < ArrayTrackPaths.length; i++) {
             var audioInputStream = album.Tracks[i].Track;
@@ -72,10 +78,16 @@ public class MusicService implements MusicServiceInterface{
         }
     }
 
+    /**
+     @inheritdoc
+     */
     public void rearrangeAlbum() {
         //не реализован
     }
 
+    /**
+    @inheritdoc
+    */
     public Track getTrackByName(Album album, String Name) {
         for (int i = 0; i < album.Tracks.length; i++) {
             if (album.Tracks[i].Name.equals(Name)) {
